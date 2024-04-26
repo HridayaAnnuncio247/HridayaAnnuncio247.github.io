@@ -2,15 +2,45 @@
 
 
 
+.bg {
+  background-image: url("background.jpg");
+
+  /* Full height */
+  height: 100%;
+  opacity: 0.2;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+}
+
+
+h1 {
+  background-color: #4f5482;
+  color: white; ##FF7F50;
+  font-size: 100px
+  height: 200px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-style: italic;
+  font-family: "Georgia";
+  
+  }
+
+
 .Theme{
 
-	width: 100%;
-	height: 50%;
+	/*width: 100%;
+	height: 100%;*/
 	text-align:  center;
-	background: url("Road.jpg");
-	background-size: cover;
+	background: url("ocean_rainbow.jpg");
+	background-size: 100% 110%;
 	background-repeat:no-repeat;
-	font-family: Playfair Display;	
+	font-family: Georgia;	
 	
 
 
@@ -31,10 +61,11 @@
 }
 #AboutMe{
 		text-align:  center;
-		font-family: Playfair Display;	
+		font-family: Georgia;	
 		padding-left:  10%;
 		padding-right: 100px;
 		padding-top:  50px;
+		color: white;
 
 }
 #image{
@@ -50,8 +81,8 @@
 
 	}
 h3{
-	color: dark grey;
-	font-family: Playfair Display;	
+	color: white;
+	font-family: Georgia;	
     font-size: 40px;
     text-align:  center;
     margin-right: 10%;
@@ -60,14 +91,16 @@ h3{
 .Section{
 	padding-top: 8%;
 	padding-left: 3%;
-	font-family: Playfair Display;	
+	font-family: Georgia;	
+	color: white;
 
 
 }
 
 
 .Section h2{
-	color: dark grey
+	color: white;
+
 	
 
 }
@@ -75,5 +108,5 @@ h3{
 
 .Content{
 	margin-left: 5%;
-
+	color: white;
 }
