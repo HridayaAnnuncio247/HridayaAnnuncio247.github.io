@@ -17,15 +17,15 @@
 
 
 h1 {
-  background-color: #4f5482;
+  /*background-color: #4f5482;*/
   color: white; ##FF7F50;
-  font-size: 100px
-  height: 200px;
+  font-size: 55px;
+  height: 50px;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 7px;
   margin-bottom: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 75px;
   font-style: italic;
   font-family: "Georgia";
   
@@ -88,8 +88,14 @@ h3{
     margin-right: 10%;
 }
 
+.Section a{
+	color: white;
+	background: red;
+}
+
 .Section{
-	padding-top: 8%;
+	padding-top: 10px;
+
 	padding-left: 3%;
 	font-family: Georgia;	
 	color: white;
@@ -109,4 +115,9 @@ h3{
 .Content{
 	margin-left: 5%;
 	color: white;
+}
+
+.col-sm-8{
+	background: rgba(120,133,149, 0.5);
+
 }
