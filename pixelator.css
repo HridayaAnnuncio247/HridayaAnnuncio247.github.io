@@ -1,0 +1,116 @@
+.footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   text-align: center;
+}
+.mainc{
+  }
+
+.col-sm-8{
+  align-content: center;
+}
+.col-sm-4{
+align-content: center;
+/*background-image: url("wood2.jpg");
+background-size: cover;
+background-repeat: repeat-y;
+height: 100%;*/
+text-align: center;
+
+}
+.e1{
+  width: 500px;
+  text-align: center;
+}
+.e2{
+  width: 500px;
+  text-align: center;
+}
+
+body {
+  text-align: center;
+}
+
+.mainTitle {
+  font-family: 'Audiowide', sans-serif;
+  color: #c88;
+  text-align: center;
+  background-image: url("background6.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 180px;
+  
+ 
+
+}
+
+.mainTitle h1{
+  padding-top: 50px;
+    font-family: Playfair Display;  
+  font-size: 80px;
+  color: white;
+}
+
+.chooseTitle {
+  margin: 1em 0 0.25em;
+}
+
+table, tr, td {
+  border: 1px solid black
+}
+
+table {
+  border-collapse: collapse;
+  margin: 40px auto;
+}
+
+tr {
+  height: 10px;
+}
+
+td {
+  width: 10px;
+}
+
+input[type=number] {
+  width: 3em;
+  margin-right: 10px;
+}
+
+input[type=submit] {
+  margin-right: 2em;
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .mainTitle {
+    font-size: 1.1rem;
+    display: inline;
+  }
+
+  .chooseTitle {
+    font-size: 1.1rem;
+    display: inline;
+  }
+
+  table {
+    margin: 10px auto;
+  }
+
+    tr {
+    height: 1px;
+  }
+
+  td {
+    width: 1px;
+  }
+}
+body{
+  background-image: url("background21.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+
+}
