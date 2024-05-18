@@ -7828,3 +7828,5 @@
 
 })));
 //# sourceMappingURL=html2canvas.js.map
+export default html2canvas;
+
