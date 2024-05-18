@@ -1,7 +1,7 @@
 
 
 //import html2canvas from "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"//"./html2canvas.js";
-import html2canvas
+import html2canvas from "./html2canvas.js";
 let canvas = document.getElementById("pixel_canvas");
 let height = document.getElementById("input_height");
 let width = document.getElementById("input_width");
