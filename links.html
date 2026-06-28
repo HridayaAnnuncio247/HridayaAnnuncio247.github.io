@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="Portfolio.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div >
+<div class="row"; opacity: 10.0; width: 100%; height:100%;"><!-- style = "background-color:#2b4c72;"> style="background-image: url('background18.jpg');opacity: 10.0; width: 100%; height:200%;">-->
+	<div class="themeimage">
+					<img src="title_side.png">
+					<img src="title_center.png">
+					<img src="title_side.png">
+	</div>
+			
+	
+	</div>
+	<div id="navigation" >
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		</nav>
+	</div>
+	</div>    
+</div> 
+<div class="row"><!-- style = "background-color:#2b4c72;"> style="background-image: url('background18.jpg');opacity: 10.0; width: 100%; height:200%;">-->
+	<div class="col-sm-8", id = "Main">
+		<div class="Section">
+			<h1><b>Links</b></h1>
+			<br>
+			<h2 id="1"><b>Movie Recommendation System Project</b></h2>
+			<br>
+			<ul>
+				<li><a href="https://movie-reccommendation-system-o599.onrender.com/">Link</a> to the rec system deployed on Render.</li>
+
+				<br>
+
+				<li> <a href="https://github.com/HridayaAnnuncio247/Movie_Reccommendation_System">Link</a> to Github Repository with all the codes.</li>
+
+				<br>
+
+				<li> <a href="https://www.youtube.com/playlist?list=PLbJZSCz-o-90">Link</a> to youtube playlist. These are some videos I created to show my process of working on the project. More are yet to come.</li>
+
+				<br>
+				<li> <h5><i> A few points of description</i></h3>
+					<br>
+					<ul>
+						<li>Created a set up page where users could select their initial preferences. This was done to help with the cold start problem.</li>
+						<li>Instead of using ALDI for the cold start problem, I averaged the movie embeddings to create the initial user embedding. </li>
+						<li>Cast and crew for movies was represented in the movie embeddings as word2Vec vectors.</li>
+						<li>For first recommendation, calculated reward just by using cosine similarity.</li>
+						<li>Created a top k reward movies for the user.</li>
+						<li>Used the hyperparameter pnew to explore movies besides the top k.</li>
+						<li>Used Epsilon Greedy algo within the top k with a 1-pnew probability.</li>
+						<li>Used LinUCB (contextual bandits) instead of DQN due to lack of user data.</li>
+						<li>LinUCB only helped with the accuracy reward. However, in the future I would like to inculcate the fairness and exploration rewards to understand if a user prefers to explore movies faraway from their likings too and in what proportions.</li>
+						<li>Users can like(reward 1) and dislike(reward -1) movies. (Movies with no like or dislike assigned reward of 0)</li>
+					</ul>
+				</li>
+			</ul>
+			<br><br>
+			<h2 id="1"><b>My Website</b></h2>
+			<br>
+			<ul>
+				<li>It has information on my Work experience, University projects and personal projects.</li>
+
+				<br>
+
+				<li> <a href="https://hridayaannuncio247.github.io/index.html">Link</a> to the channel</li>
+
+			</ul>
+			<br><br>
+			<h2 id="1"><b>YouTube Channel (@FunWithCSAndMaths)</b></h2>
+			<br>
+			<ul>
+				<li>I post videos on different Mathematics and Computer Science concepts.</li>
+
+				<br>
+
+				<li> <a href="https://www.youtube.com/@FunWithCSAndMaths">Link</a> to the channel</li>
+
+			</ul>
+
+			
+
+
+
+				</div>
+				
+		<!--<br>-->	
+		</div>		
+	</div>
+
+
+
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Social Media Links -->
+        <div class="social-links">
+      <a href="https://www.youtube.com/@FunWithCSAndMaths" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/hridaya-annuncio-662a89128/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/funwithcsandmaths/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      &copy; 2025 Hridaya Annuncio. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
