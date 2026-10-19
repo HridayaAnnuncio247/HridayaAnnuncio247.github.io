@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="Portfolio_eros.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div >
+<div class="row"; opacity: 10.0; width: 100%; height:100%;"><!-- style = "background-color:#2b4c72;"> style="background-image: url('background18.jpg');opacity: 10.0; width: 100%; height:200%;">-->
+	<div class="themeimage">
+					<img src="title_side.png">
+					<img src="title_center.png">
+					<img src="title_side.png">
+	</div>
+			
+	
+	</div>
+	<div id="navigation" >
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+		</nav>
+	</div>
+	</div>    
+</div> 
+<div class="row"><!-- style = "background-color:#2b4c72;"> style="background-image: url('background18.jpg');opacity: 10.0; width: 100%; height:200%;">-->
+	<div class="col-sm-8", id = "Main">
+		<div class="Section">
+
+			<h1><b>Implementing EROS</b></h1>
+			<br>
+			<ul>
+			<li>
+			<h2 ><b>The EmoTree</b></h2>
+			<br>
+
+			<ul>
+				<li>
+				<h3>Limitations and how I countered them</h3>
+				<br>
+				<ul>
+					<li>To create the original EmoTree, the paper used GPT4 for a number of requirements. However, GPT4 can turn out to be expensive. And, to counter this limitation, I used other local models ->
+					<ul>
+						<li><b>spaCy</b> was used for noun/noun-phrase extraction from the captions even in the creation of the EmoTree.</li>
+						<li><b>Zero Shot Classifier</b><br> was used to find the noun that brings out a certain emotion (valence) in the caption <br>and<br>to find the best target emotion noun out of the 50 sampled nouns while building the EmoTree</li>
+						<br>
+						<li><b>Mistral-7B-Instruct-v0.3</b><br>was used to create the motifs.<br></li>
+					</ul>
+					</li>
+
+					<br><br>
+					<li>
+						Now, to sample 50 nouns + find the best noun(2 secs) + create a motif (13.7 secs)
+						takes around 16 secs total on the GPU. 
+						This means, all the 95k training images would take around 18 days.
+						I, unfortunately, do not have access to the kind of resources that could help with that. So, I had to engineer something smaller that counters the limitation while still retaining the logic of the emotree.
+						<ul>
+							<li>
+								<b>I re-clustered the images</b> into 57 clusters for each of the original 8 emotions from the Dataset (instead of using a similarity factor).<br>
+								<b>Why 57?</b>I will talk about that in the next point.
+
+							</li>
+							<li>
+								Now, the entire reason to cluster images is so that later on, when the user uploads their own image, using the tree they can go to a cluster that is semantically close to their image. This way, the valence change can happen smoothly. And to keep that smoothness, having more clusters is important.
+								So, based on the resources I had access to, the maximum  number of clusters I could create per emotion were 57.
+							</li>
+							<li>
+								<b>From Each of the 57X8 clusters:</b>
+								<ul>
+									<li>Extracted their respective captions</li>
+									<li>Sampled 50 nouns from the target emotion's vocabulary, (did it for both positive and negative)</li>
+									<li>Selected the noun that is most semantically coherent to the caption, (using zero shot classifier)</li>
+									<li>Used this noun in Mistral to get the motif</li>
+								</ul>
+								<br>
+								<i>You will observe that the aspect of having multiple source concepts per cluster, which each in turn have multiple target concepts per target valence, is not a part of the EmoTree.<br>I chose to keep only 1 source concept per cluster and 1 target motif for each target valence.<br>This decision was made because I expected more clusters with fewer target concepts to generate better images. Additionally, I chose to keep better semantic coherence than randomness through multiple target motifs.</i>
+							</li>
+							<br><br>
+						</ul>
+					</li>
+					
+				</ul>
+				</li>
+				<br><br>
+				<li>
+				<h2 ><b>RESULTS</b></h2>
+				<br>
+				<h3><b>Base valence: Negative</b></h3>
+					<div id="image">		
+						<img src="np1.png"><br>
+						<img src="nn1.png">
+						<br><br><br>
+						<img src="np2.png"><br>
+						<img src="nn2.png">
+						<br><br><br>
+						<img src="np3.png"><br>
+						<img src="nn3.png">
+						<br><br><br>
+						<img src="np4.png"><br>
+						<img src="nn4.png">
+						<br><br><br>
+
+					</div>
+
+
+				<h3><b>Base valence: Positive</b></h3>
+					<div id="image">		
+						<img src="pp1.png"><br>
+						<img src="pn1.png">
+						<br><br><br>
+						<img src="pp2.png"><br>
+						<img src="pn2.png">
+						<br><br><br>
+						<img src="pp3.png"><br>
+						<img src="pn3.png">
+						<br><br><br>
+						<img src="pp4.png"><br>
+						<img src="pn4.png">
+						<br><br><br>
+
+					</div>
+				</li>
+				<li>
+				<h2><b>Discussion</b></h2>
+				Evidently, Some of the results look a little distorted because of not being able to find tan approproate target concept. Thus, even with a sematically close cluster, The lack of a semantically coherent source concept (due to only 1 per cluster) and thus, motifs, some of the images generated were not that meaningful. <br>Some images were probably unable to find better semantic base coherence itself due to more general clustering.
+				</li>
+				<br><br>
+				<li>
+				<h2><b>Future trials</b></h2>
+				In the future, even with limited resources, I would like to try and add atleast 1 more source concept per cluster.  
+				</li>
+			</ul>
+				<br><br><br><br>
+
+			<div >
+			<h1><b>Links</b></h1>
+			<br>
+			<h3><b>Project Links</b></h3>
+			<ul>
+				<li><a href="https://github.com/HridayaAnnuncio247/EROS">Link</a> to Github repository.</li>
+
+				<li> <a href="https://www.blogger.com/u/2/blog/posts/8568189273703403751">Link</a> to the blog where more details are available on how I implemented every module + the engineering decisions made.</li>
+
+			</ul>	
+			<br>
+			<h3 ><b>My Website</b></h3>
+			<ul>
+				<li>It has information on my Work experience, University projects and personal projects.</li>
+
+
+				<li> <a href="https://hridayaannuncio247.github.io/index.html">Link</a> to the website.</li>
+
+			</ul>
+			<br>
+			<h3><b>YouTube Channel (@FunWithCSAndMaths)</b></h3>
+			<ul>
+				<li>I post videos on different Mathematics and Computer Science concepts.</li>
+
+				<li> <a href="https://www.youtube.com/@FunWithCSAndMaths">Link</a> to the channel.</li>
+
+			</ul>
+
+			
+			</div>
+
+
+				</div>
+				
+		<!--<br>-->	
+		</div>		
+	</div>
+
+
+
+</div>
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Social Media Links -->
+        <div class="social-links">
+      <a href="https://www.youtube.com/@FunWithCSAndMaths" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.linkedin.com/in/hridaya-annuncio-662a89128/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/funwithcsandmaths/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      &copy; 2025 Hridaya Annuncio. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
