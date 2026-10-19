@@ -49,7 +49,6 @@
 					<ul>
 						<li><b>spaCy</b> was used for noun/noun-phrase extraction from the captions even in the creation of the EmoTree.</li>
 						<li><b>Zero Shot Classifier</b><br> was used to find the noun that brings out a certain emotion (valence) in the caption <br>and<br>to find the best target emotion noun out of the 50 sampled nouns while building the EmoTree</li>
-						<br>
 						<li><b>Mistral-7B-Instruct-v0.3</b><br>was used to create the motifs.<br></li>
 					</ul>
 					</li>
@@ -79,7 +78,7 @@
 									<li>Used this noun in Mistral to get the motif</li>
 								</ul>
 								<br>
-								<i>You will observe that the aspect of having multiple source concepts per cluster, which each in turn have multiple target concepts per target valence, is not a part of the EmoTree.<br>I chose to keep only 1 source concept per cluster and 1 target motif for each target valence.<br>This decision was made because I expected more clusters with fewer target concepts to generate better images. Additionally, I chose to keep better semantic coherence than randomness through multiple target motifs.</i>
+								<i>You will observe that the aspect of having multiple source concepts per cluster, which each in turn have multiple target concepts per target valence, is not a part of the EmoTree.<br>I chose to keep only 1 source concept per cluster and 1 target motif for each target valence.<br>This decision was made because I expected more clusters with fewer target concepts to generate better images. Additionally, I chose to keep better semantic coherence rather than randomness through multiple target motifs.</i>
 							</li>
 							<br><br>
 						</ul>
@@ -128,12 +127,17 @@
 				</li>
 				<li>
 				<h2><b>Discussion</b></h2>
-				Evidently, Some of the results look a little distorted because of not being able to find tan approproate target concept. Thus, even with a sematically close cluster, The lack of a semantically coherent source concept (due to only 1 per cluster) and thus, motifs, some of the images generated were not that meaningful. <br>Some images were probably unable to find better semantic base coherence itself due to more general clustering.
+				Evidently, Some of the results look a little distorted because of not being able to find an appropriate target concept. Thus, even with a sematically close cluster, the lack of a semantically coherent source concept (due to only 1 per cluster) and thus, motifs, some of the images generated were not as meaningful as we would want them to be. <br>Some images were probably unable to find better semantic base coherence itself due to more general clustering.
+				<br>It would be interesting to see if reducing the number of clusters to half and doubling the source concepts per cluster would lead to better results. 
+				<br>
+				Additionally, you will observe that humans are generated with very distorted faces (I generated other examples too where the same distortion occurred). Could that be because of the number of generation steps reduced to 50? It would be interesting to experiment and see.
 				</li>
 				<br><br>
 				<li>
 				<h2><b>Future trials</b></h2>
-				In the future, even with limited resources, I would like to try and add atleast 1 more source concept per cluster.  
+				In the future, even with limited resources, I would like to try and add atleast 1 more source concept per cluster.
+				<br>
+				I would also like to experiment with the actual generation of the image to see if there is a way to repair the distorted human faces. 
 				</li>
 			</ul>
 				<br><br><br><br>
